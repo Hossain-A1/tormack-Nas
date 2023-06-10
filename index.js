@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
+const deviceRoutes = require("./routes/device");
 
 //app
 const app = express();
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth/user", userRoutes);
+app.use("/api/data/device", deviceRoutes);
 
 // port
 const port = process.env.PORT || 8080;
