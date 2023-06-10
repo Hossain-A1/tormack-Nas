@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("./routes/user");
 
 //app
 const app = express();
@@ -28,11 +28,8 @@ const port = process.env.PORT || 8080;
 const uri = process.env.MONGO_URI;
 
 //connect mongoDB
-mongoose
-  .connect(uri, { useUnifiedTopology: true })
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`mongose connect port listing on port ${port} `);
-    });
-  })
-  
+mongoose.connect(uri, { useUnifiedTopology: true }).then(() => {
+  app.listen(port, () => {
+    console.log(`mongose connect port listing on port ${port} `);
+  });
+});
